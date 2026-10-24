@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+logs/
+console.log
+# BTC audio is NOT redistributed: place it here before running (see README)
+data[[]ban_to_chuc]/vlsp/*
+data[[]ban_to_chuc]/private_test/*
+data[[]ban_to_chuc]/public_test/*
+!data[[]ban_to_chuc]/*/.gitkeep
+distill[[]12,7m_du_lieu_ban_to_chuc]/be_qmf/submissions/
+outputs/

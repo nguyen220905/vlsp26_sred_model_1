@@ -1,0 +1,81 @@
+[10-05 01:57:01] config {"model": "redimnet_M_multi", "init": null, "desc": "FINAL M + proj KD (B6 FT), ALL 1900 spk, 4 ep, EMA", "epochs": 4, "crop": 3.0, "bs": 16, "accum": 2, "workers": 6, "utt_cap": null, "lr_backbone": 0.0001, "lr_head": 0.001, "wd": 0.0001, "warmup": 500, "min_lr_ratio": 0.05, "freeze_steps": 0, "margin": 0.2, "scale": 32.0, "margin_ramp_epochs": 0.5, "aug": "mid", "speed_perturb": false, "ema": 0.999, "kd": [{"name": "b6ft", "path": "D:\\project_vlsp\\cache\\teachers\\b6_ft.npz", "mode": "proj", "weight": 2.0}], "l2sp": 0.0, "head_init": "centroid", "hard_batch": null, "seed": 0, "mem_frac": 0.85, "amp": true, "smoke": false, "final_eval": true, "eval_devB": false, "all_data": true, "final_pick": "ema", "code_hash": "d36e74c71c6e"}
+[10-05 01:57:31] model redimnet_M_multi params 4.812M (<7M: True) emb 192 | train 58404 utts / 1900 spk | codec copies 13247
+[10-05 02:00:30] ep 1 step 100/7300 aam 0.679 acc 0.882 kd 1.935 lr 2.00e-04 m 0.022 1.748s/step eta 210min
+[10-05 02:02:02] ep 1 step 200/7300 aam 0.680 acc 0.896 kd 1.760 lr 3.99e-04 m 0.044 1.333s/step eta 158min
+[10-05 02:03:37] ep 1 step 300/7300 aam 0.677 acc 0.904 kd 1.544 lr 5.98e-04 m 0.066 1.205s/step eta 141min
+[10-05 02:05:09] ep 1 step 400/7300 aam 0.712 acc 0.909 kd 1.362 lr 7.94e-04 m 0.087 1.134s/step eta 130min
+[10-05 02:06:40] ep 1 step 500/7300 aam 0.741 acc 0.913 kd 1.225 lr 9.89e-04 m 0.109 1.090s/step eta 123min
+[10-05 02:08:12] ep 1 step 600/7300 aam 0.790 acc 0.915 kd 1.122 lr 9.84e-04 m 0.131 1.061s/step eta 118min
+[10-05 02:09:44] ep 1 step 700/7300 aam 0.846 acc 0.917 kd 1.044 lr 9.79e-04 m 0.153 1.040s/step eta 114min
+[10-05 02:11:16] ep 1 step 800/7300 aam 0.907 acc 0.918 kd 0.983 lr 9.72e-04 m 0.175 1.025s/step eta 111min
+[10-05 02:12:47] ep 1 step 900/7300 aam 0.978 acc 0.919 kd 0.933 lr 9.65e-04 m 0.197 1.013s/step eta 108min
+[10-05 02:14:18] ep 1 step 1000/7300 aam 1.039 acc 0.921 kd 0.894 lr 9.57e-04 m 0.200 1.003s/step eta 105min
+[10-05 02:15:49] ep 1 step 1100/7300 aam 1.105 acc 0.920 kd 0.860 lr 9.48e-04 m 0.200 0.994s/step eta 103min
+[10-05 02:17:20] ep 1 step 1200/7300 aam 1.145 acc 0.922 kd 0.832 lr 9.38e-04 m 0.200 0.987s/step eta 100min
+[10-05 02:18:51] ep 1 step 1300/7300 aam 1.182 acc 0.922 kd 0.807 lr 9.28e-04 m 0.200 0.981s/step eta 98min
+[10-05 02:20:21] ep 1 step 1400/7300 aam 1.203 acc 0.923 kd 0.786 lr 9.16e-04 m 0.200 0.976s/step eta 96min
+[10-05 02:21:52] ep 1 step 1500/7300 aam 1.224 acc 0.924 kd 0.768 lr 9.05e-04 m 0.200 0.971s/step eta 94min
+[10-05 02:23:23] ep 1 step 1600/7300 aam 1.244 acc 0.924 kd 0.752 lr 8.92e-04 m 0.200 0.967s/step eta 92min
+[10-05 02:24:54] ep 1 step 1700/7300 aam 1.263 acc 0.924 kd 0.738 lr 8.79e-04 m 0.200 0.964s/step eta 90min
+[10-05 02:26:26] ep 1 step 1800/7300 aam 1.275 acc 0.925 kd 0.724 lr 8.65e-04 m 0.200 0.961s/step eta 88min
+[10-05 02:26:48] epoch 1 done: aam 1.276 acc 0.925 kd 0.721
+[10-05 02:28:20] ep 2 step 1925/7300 aam 1.236 acc 0.947 kd 0.503 lr 8.46e-04 m 0.200 0.958s/step eta 86min
+[10-05 02:29:52] ep 2 step 2025/7300 aam 1.213 acc 0.948 kd 0.499 lr 8.31e-04 m 0.200 0.956s/step eta 84min
+[10-05 02:31:26] ep 2 step 2125/7300 aam 1.252 acc 0.944 kd 0.500 lr 8.15e-04 m 0.200 0.955s/step eta 82min
+[10-05 02:32:57] ep 2 step 2225/7300 aam 1.240 acc 0.945 kd 0.500 lr 7.99e-04 m 0.200 0.953s/step eta 81min
+[10-05 02:34:28] ep 2 step 2325/7300 aam 1.235 acc 0.945 kd 0.498 lr 7.82e-04 m 0.200 0.951s/step eta 79min
+[10-05 02:35:58] ep 2 step 2425/7300 aam 1.243 acc 0.945 kd 0.498 lr 7.64e-04 m 0.200 0.950s/step eta 77min
+[10-05 02:37:29] ep 2 step 2525/7300 aam 1.254 acc 0.944 kd 0.498 lr 7.46e-04 m 0.200 0.948s/step eta 75min
+[10-05 02:39:00] ep 2 step 2625/7300 aam 1.265 acc 0.943 kd 0.498 lr 7.28e-04 m 0.200 0.946s/step eta 74min
+[10-05 02:40:30] ep 2 step 2725/7300 aam 1.258 acc 0.944 kd 0.497 lr 7.09e-04 m 0.200 0.945s/step eta 72min
+[10-05 02:42:01] ep 2 step 2825/7300 aam 1.254 acc 0.944 kd 0.496 lr 6.90e-04 m 0.200 0.943s/step eta 70min
+[10-05 02:43:32] ep 2 step 2925/7300 aam 1.241 acc 0.944 kd 0.495 lr 6.71e-04 m 0.200 0.942s/step eta 69min
+[10-05 02:45:02] ep 2 step 3025/7300 aam 1.247 acc 0.944 kd 0.495 lr 6.51e-04 m 0.200 0.941s/step eta 67min
+[10-05 02:46:33] ep 2 step 3125/7300 aam 1.246 acc 0.944 kd 0.494 lr 6.32e-04 m 0.200 0.940s/step eta 65min
+[10-05 02:48:04] ep 2 step 3225/7300 aam 1.240 acc 0.944 kd 0.493 lr 6.12e-04 m 0.200 0.939s/step eta 64min
+[10-05 02:49:34] ep 2 step 3325/7300 aam 1.240 acc 0.944 kd 0.493 lr 5.91e-04 m 0.200 0.938s/step eta 62min
+[10-05 02:51:05] ep 2 step 3425/7300 aam 1.241 acc 0.944 kd 0.492 lr 5.71e-04 m 0.200 0.937s/step eta 61min
+[10-05 02:52:36] ep 2 step 3525/7300 aam 1.237 acc 0.944 kd 0.491 lr 5.51e-04 m 0.200 0.936s/step eta 59min
+[10-05 02:54:07] ep 2 step 3625/7300 aam 1.235 acc 0.944 kd 0.491 lr 5.30e-04 m 0.200 0.936s/step eta 57min
+[10-05 02:54:30] epoch 2 done: aam 1.237 acc 0.944 kd 0.491
+[10-05 02:56:02] ep 3 step 3750/7300 aam 1.006 acc 0.953 kd 0.479 lr 5.05e-04 m 0.200 0.935s/step eta 55min
+[10-05 02:57:34] ep 3 step 3850/7300 aam 1.013 acc 0.951 kd 0.477 lr 4.84e-04 m 0.200 0.935s/step eta 54min
+[10-05 02:59:05] ep 3 step 3950/7300 aam 1.020 acc 0.952 kd 0.477 lr 4.64e-04 m 0.200 0.934s/step eta 52min
+[10-05 03:00:36] ep 3 step 4050/7300 aam 1.021 acc 0.952 kd 0.477 lr 4.44e-04 m 0.200 0.933s/step eta 51min
+[10-05 03:02:07] ep 3 step 4150/7300 aam 1.031 acc 0.951 kd 0.477 lr 4.24e-04 m 0.200 0.933s/step eta 49min
+[10-05 03:03:37] ep 3 step 4250/7300 aam 1.021 acc 0.952 kd 0.476 lr 4.04e-04 m 0.200 0.932s/step eta 47min
+[10-05 03:05:08] ep 3 step 4350/7300 aam 1.015 acc 0.953 kd 0.476 lr 3.84e-04 m 0.200 0.932s/step eta 46min
+[10-05 03:06:39] ep 3 step 4450/7300 aam 1.030 acc 0.952 kd 0.477 lr 3.65e-04 m 0.200 0.931s/step eta 44min
+[10-05 03:08:10] ep 3 step 4550/7300 aam 1.021 acc 0.952 kd 0.475 lr 3.46e-04 m 0.200 0.931s/step eta 43min
+[10-05 03:09:41] ep 3 step 4650/7300 aam 1.019 acc 0.953 kd 0.476 lr 3.27e-04 m 0.200 0.930s/step eta 41min
+[10-05 03:11:12] ep 3 step 4750/7300 aam 1.021 acc 0.952 kd 0.475 lr 3.09e-04 m 0.200 0.930s/step eta 40min
+[10-05 03:12:44] ep 3 step 4850/7300 aam 1.018 acc 0.953 kd 0.475 lr 2.91e-04 m 0.200 0.930s/step eta 38min
+[10-05 03:14:16] ep 3 step 4950/7300 aam 1.014 acc 0.953 kd 0.474 lr 2.73e-04 m 0.200 0.929s/step eta 36min
+[10-05 03:15:48] ep 3 step 5050/7300 aam 1.013 acc 0.953 kd 0.474 lr 2.56e-04 m 0.200 0.929s/step eta 35min
+[10-05 03:17:20] ep 3 step 5150/7300 aam 1.014 acc 0.953 kd 0.474 lr 2.39e-04 m 0.200 0.929s/step eta 33min
+[10-05 03:18:52] ep 3 step 5250/7300 aam 1.018 acc 0.952 kd 0.474 lr 2.23e-04 m 0.200 0.929s/step eta 32min
+[10-05 03:20:24] ep 3 step 5350/7300 aam 1.017 acc 0.952 kd 0.474 lr 2.08e-04 m 0.200 0.929s/step eta 30min
+[10-05 03:21:55] ep 3 step 5450/7300 aam 1.013 acc 0.953 kd 0.473 lr 1.93e-04 m 0.200 0.928s/step eta 29min
+[10-05 03:22:18] epoch 3 done: aam 1.012 acc 0.953 kd 0.473
+[10-05 03:23:50] ep 4 step 5575/7300 aam 0.938 acc 0.955 kd 0.463 lr 1.75e-04 m 0.200 0.928s/step eta 27min
+[10-05 03:25:22] ep 4 step 5675/7300 aam 0.918 acc 0.957 kd 0.462 lr 1.62e-04 m 0.200 0.928s/step eta 25min
+[10-05 03:26:54] ep 4 step 5775/7300 aam 0.924 acc 0.958 kd 0.463 lr 1.49e-04 m 0.200 0.928s/step eta 24min
+[10-05 03:28:26] ep 4 step 5875/7300 aam 0.913 acc 0.959 kd 0.464 lr 1.37e-04 m 0.200 0.928s/step eta 22min
+[10-05 03:29:57] ep 4 step 5975/7300 aam 0.924 acc 0.958 kd 0.465 lr 1.25e-04 m 0.200 0.927s/step eta 20min
+[10-05 03:31:29] ep 4 step 6075/7300 aam 0.926 acc 0.958 kd 0.465 lr 1.15e-04 m 0.200 0.927s/step eta 19min
+[10-05 03:33:01] ep 4 step 6175/7300 aam 0.935 acc 0.956 kd 0.465 lr 1.05e-04 m 0.200 0.927s/step eta 17min
+[10-05 03:34:33] ep 4 step 6275/7300 aam 0.928 acc 0.956 kd 0.465 lr 9.56e-05 m 0.200 0.927s/step eta 16min
+[10-05 03:36:05] ep 4 step 6375/7300 aam 0.924 acc 0.956 kd 0.465 lr 8.72e-05 m 0.200 0.927s/step eta 14min
+[10-05 03:37:38] ep 4 step 6475/7300 aam 0.926 acc 0.956 kd 0.464 lr 7.97e-05 m 0.200 0.927s/step eta 13min
+[10-05 03:39:12] ep 4 step 6575/7300 aam 0.921 acc 0.956 kd 0.464 lr 7.30e-05 m 0.200 0.927s/step eta 11min
+[10-05 03:40:44] ep 4 step 6675/7300 aam 0.921 acc 0.956 kd 0.464 lr 6.71e-05 m 0.200 0.927s/step eta 10min
+[10-05 03:42:16] ep 4 step 6775/7300 aam 0.926 acc 0.956 kd 0.464 lr 6.21e-05 m 0.200 0.927s/step eta 8min
+[10-05 03:43:48] ep 4 step 6875/7300 aam 0.925 acc 0.956 kd 0.464 lr 5.80e-05 m 0.200 0.927s/step eta 7min
+[10-05 03:45:21] ep 4 step 6975/7300 aam 0.925 acc 0.956 kd 0.464 lr 5.47e-05 m 0.200 0.927s/step eta 5min
+[10-05 03:46:53] ep 4 step 7075/7300 aam 0.924 acc 0.956 kd 0.464 lr 5.22e-05 m 0.200 0.927s/step eta 3min
+[10-05 03:48:26] ep 4 step 7175/7300 aam 0.923 acc 0.956 kd 0.463 lr 5.07e-05 m 0.200 0.927s/step eta 2min
+[10-05 03:49:58] ep 4 step 7275/7300 aam 0.921 acc 0.956 kd 0.463 lr 5.00e-05 m 0.200 0.927s/step eta 0min
+[10-05 03:50:21] epoch 4 done: aam 0.920 acc 0.956 kd 0.463
+[10-05 03:50:23] all_data run: no dev evaluation; final = ema (fixed a priori); public test (info only):
+[10-05 04:00:13]   pub              cos  5.013  asnorm  5.085  minDCF 0.3393
+[10-05 04:00:14]   eval done in 592s

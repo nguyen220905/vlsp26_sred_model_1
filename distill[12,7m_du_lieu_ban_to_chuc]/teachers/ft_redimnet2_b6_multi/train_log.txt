@@ -1,0 +1,55 @@
+[10-04 07:37:03] config {"model": "redimnet2_b6_multi", "init": null, "desc": "TEACHER ReDimNet2-B6 multi FT (2 ep, 3 s, aug mid)", "epochs": 2, "crop": 3.0, "bs": 16, "accum": 2, "workers": 6, "utt_cap": null, "lr_backbone": 0.0001, "lr_head": 0.001, "wd": 0.0001, "warmup": 500, "min_lr_ratio": 0.05, "freeze_steps": 0, "margin": 0.2, "scale": 32.0, "margin_ramp_epochs": 0.5, "aug": "mid", "speed_perturb": false, "ema": 0.999, "kd": [], "l2sp": 0.0, "head_init": "centroid", "hard_batch": null, "seed": 0, "mem_frac": 0.85, "amp": true, "smoke": false, "final_eval": true, "eval_devB": false, "code_hash": "ac20ffdac423"}
+[10-04 07:37:41] model redimnet2_b6_multi params 12.459M (<7M: False) emb 192 | train 52988 utts / 1702 spk | codec copies 13247
+[10-04 07:37:41] head init: embedding 11855 utts with the initial model
+[10-04 07:46:51] epoch 0 (init) devA_random EER(cos) 2.020
+[10-04 07:49:45] ep 1 step 100/3310 aam 0.840 acc 0.861 kd 0.000 lr 2.00e-04 m 0.024 1.737s/step eta 93min
+[10-04 07:51:33] ep 1 step 200/3310 aam 0.816 acc 0.881 kd 0.000 lr 3.97e-04 m 0.048 1.411s/step eta 73min
+[10-04 07:53:27] ep 1 step 300/3310 aam 0.798 acc 0.896 kd 0.000 lr 5.89e-04 m 0.072 1.319s/step eta 66min
+[10-04 08:04:34] ep 1 step 400/3310 aam 0.791 acc 0.905 kd 0.000 lr 7.73e-04 m 0.096 2.656s/step eta 129min
+[10-04 08:07:11] ep 1 step 500/3310 aam 0.822 acc 0.909 kd 0.000 lr 9.48e-04 m 0.121 2.440s/step eta 114min
+[10-04 08:09:00] ep 1 step 600/3310 aam 0.864 acc 0.912 kd 0.000 lr 9.25e-04 m 0.145 2.215s/step eta 100min
+[10-04 08:10:49] ep 1 step 700/3310 aam 0.909 acc 0.915 kd 0.000 lr 8.99e-04 m 0.169 2.054s/step eta 89min
+[10-04 08:12:37] ep 1 step 800/3310 aam 0.977 acc 0.917 kd 0.000 lr 8.70e-04 m 0.193 1.933s/step eta 81min
+[10-04 08:18:46] ep 1 step 900/3310 aam 1.035 acc 0.919 kd 0.000 lr 8.37e-04 m 0.200 2.128s/step eta 85min
+[10-04 08:30:27] ep 1 step 1000/3310 aam 1.072 acc 0.920 kd 0.000 lr 8.02e-04 m 0.200 2.615s/step eta 101min
+[10-04 08:35:45] ep 1 step 1100/3310 aam 1.095 acc 0.921 kd 0.000 lr 7.64e-04 m 0.200 2.667s/step eta 98min
+[10-04 08:37:34] ep 1 step 1200/3310 aam 1.113 acc 0.922 kd 0.000 lr 7.24e-04 m 0.200 2.535s/step eta 89min
+[10-04 08:39:22] ep 1 step 1300/3310 aam 1.126 acc 0.923 kd 0.000 lr 6.82e-04 m 0.200 2.424s/step eta 81min
+[10-04 08:41:11] ep 1 step 1400/3310 aam 1.129 acc 0.925 kd 0.000 lr 6.39e-04 m 0.200 2.328s/step eta 74min
+[10-04 08:42:59] ep 1 step 1500/3310 aam 1.134 acc 0.925 kd 0.000 lr 5.95e-04 m 0.200 2.245s/step eta 68min
+[10-04 08:44:48] ep 1 step 1600/3310 aam 1.137 acc 0.926 kd 0.000 lr 5.50e-04 m 0.200 2.173s/step eta 62min
+[10-04 08:45:48] epoch 1 done: aam 1.133 acc 0.927 kd 0.000
+[10-04 08:47:23] epoch 1 devA_random EER(cos) 1.250
+[10-04 08:49:11] ep 2 step 1755/3310 aam 0.968 acc 0.943 kd 0.000 lr 4.80e-04 m 0.200 2.131s/step eta 55min
+[10-04 08:51:00] ep 2 step 1855/3310 aam 0.954 acc 0.948 kd 0.000 lr 4.36e-04 m 0.200 2.075s/step eta 50min
+[10-04 08:52:49] ep 2 step 1955/3310 aam 0.930 acc 0.949 kd 0.000 lr 3.92e-04 m 0.200 2.024s/step eta 46min
+[10-04 08:54:37] ep 2 step 2055/3310 aam 0.932 acc 0.949 kd 0.000 lr 3.49e-04 m 0.200 1.979s/step eta 41min
+[10-04 08:56:26] ep 2 step 2155/3310 aam 0.934 acc 0.949 kd 0.000 lr 3.08e-04 m 0.200 1.937s/step eta 37min
+[10-04 08:58:14] ep 2 step 2255/3310 aam 0.934 acc 0.948 kd 0.000 lr 2.69e-04 m 0.200 1.899s/step eta 33min
+[10-04 09:00:03] ep 2 step 2355/3310 aam 0.942 acc 0.948 kd 0.000 lr 2.32e-04 m 0.200 1.865s/step eta 30min
+[10-04 09:01:52] ep 2 step 2455/3310 aam 0.937 acc 0.948 kd 0.000 lr 1.98e-04 m 0.200 1.833s/step eta 26min
+[10-04 09:03:40] ep 2 step 2555/3310 aam 0.940 acc 0.948 kd 0.000 lr 1.67e-04 m 0.200 1.804s/step eta 23min
+[10-04 09:05:29] ep 2 step 2655/3310 aam 0.937 acc 0.948 kd 0.000 lr 1.39e-04 m 0.200 1.777s/step eta 19min
+[10-04 09:07:18] ep 2 step 2755/3310 aam 0.931 acc 0.948 kd 0.000 lr 1.15e-04 m 0.200 1.752s/step eta 16min
+[10-04 09:09:06] ep 2 step 2855/3310 aam 0.930 acc 0.948 kd 0.000 lr 9.38e-05 m 0.200 1.729s/step eta 13min
+[10-04 09:10:55] ep 2 step 2955/3310 aam 0.923 acc 0.949 kd 0.000 lr 7.69e-05 m 0.200 1.707s/step eta 10min
+[10-04 09:12:43] ep 2 step 3055/3310 aam 0.916 acc 0.949 kd 0.000 lr 6.40e-05 m 0.200 1.687s/step eta 7min
+[10-04 09:14:32] ep 2 step 3155/3310 aam 0.911 acc 0.949 kd 0.000 lr 5.52e-05 m 0.200 1.667s/step eta 4min
+[10-04 09:16:21] ep 2 step 3255/3310 aam 0.905 acc 0.950 kd 0.000 lr 5.07e-05 m 0.200 1.650s/step eta 2min
+[10-04 09:17:20] epoch 2 done: aam 0.905 acc 0.950 kd 0.000
+[10-04 09:18:55] epoch 2 devA_random EER(cos) 1.300
+[10-04 09:18:56] final eval [last] (dev sets)
+[10-04 09:29:52]   devA_random      cos  1.310  asnorm  1.040  minDCF 0.0476
+[10-04 09:29:52]   devA_hard        cos  4.700  asnorm  4.633  minDCF 0.2893
+[10-04 09:29:52]   devA_shortlong   cos  2.100  asnorm  2.033  minDCF 0.0687
+[10-04 09:29:52]   devA_simedge     cos  5.167  asnorm  4.033  minDCF 0.1860
+[10-04 09:29:54]   eval done in 658s
+[10-04 09:29:54] final eval [ema] (dev sets)
+[10-04 09:40:49]   devA_random      cos  1.190  asnorm  1.010  minDCF 0.0421
+[10-04 09:40:49]   devA_hard        cos  4.300  asnorm  4.333  minDCF 0.2570
+[10-04 09:40:49]   devA_shortlong   cos  2.100  asnorm  2.067  minDCF 0.0647
+[10-04 09:40:49]   devA_simedge     cos  5.200  asnorm  3.833  minDCF 0.1960
+[10-04 09:40:50]   eval done in 657s
+[10-04 09:40:50] selected on devA_random(asnorm): ema; public test (info only) for the selected model:
+[10-04 09:55:33]   pub              cos  4.649  asnorm  4.653  minDCF 0.2697
+[10-04 09:57:47]   eval done in 1017s

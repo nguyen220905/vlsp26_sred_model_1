@@ -1,0 +1,26 @@
+# Split report
+
+- within-ID utt->own-centroid (LOO) sim, 3-model avg: p5=0.613 p50=0.810
+- between-ID mean utt->centroid sim: p50=0.203 p99.9=0.516 p99.99=0.620 max=0.874
+- identity links (ratio > 0.92 and cross > 0.620, or identical file): 116 pairs -> listen to lists/identity_links.tsv; IDs are NOT merged
+  - id02665 ~ id02966 cross=1.000 within=(nan,nan) ratio=nan identical_file:id02966/0025.wav,id02665/1690.wav
+  - id02665 ~ id03180 cross=1.000 within=(nan,nan) ratio=nan identical_file:id03180/0132.wav,id02665/0882.wav
+  - id01083 ~ id01088 cross=0.874 within=(0.892,0.900) ratio=0.98 embedding
+  - id03635 ~ id03637 cross=0.859 within=(0.876,0.842) ratio=1.02 embedding
+  - id01425 ~ id03523 cross=0.849 within=(0.900,0.788) ratio=1.08 embedding
+  - id01752 ~ id01753 cross=0.848 within=(0.892,0.908) ratio=0.95 embedding
+  - id00994 ~ id04571 cross=0.813 within=(0.879,0.867) ratio=0.94 embedding
+  - id02875 ~ id03466 cross=0.812 within=(0.808,0.899) ratio=1.01 embedding
+  - id00994 ~ id01573 cross=0.810 within=(0.879,0.884) ratio=0.92 embedding
+  - id00445 ~ id02317 cross=0.809 within=(0.820,0.886) ratio=0.99 embedding
+  - id00543 ~ id01520 cross=0.806 within=(0.926,0.854) ratio=0.94 embedding
+  - id01686 ~ id01687 cross=0.804 within=(0.820,0.832) ratio=0.98 embedding
+  - id00962 ~ id03395 cross=0.790 within=(0.857,0.871) ratio=0.92 embedding
+  - id01574 ~ id03466 cross=0.786 within=(0.787,0.899) ratio=1.00 embedding
+  - id03794 ~ id04313 cross=0.782 within=(0.764,0.792) ratio=1.02 embedding
+- multi-ID group sizes: [17, 6, 6, 3, 3, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+- 78 IDs are in multi-ID identity groups (25 groups) -> kept in TRAIN
+- suspect utterances (closer to another ID by > 0.10): 1529 -> lists/suspect_utts.tsv (kept in train; excluded from dev trials only)
+- dev-A: 99 speakers, 2811 utts
+- dev-B: 99 speakers, 2605 utts
+- train: 1702 speakers, 52988 utts

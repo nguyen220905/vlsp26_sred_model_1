@@ -1,0 +1,16 @@
+# Python 3.11.9 — môi trường đã dùng để train + chấm (pip freeze, rút gọn các gói thật sự được import)
+# torch / torchaudio bản CUDA 12.8:
+#   pip install torch==2.11.0+cu128 torchaudio==2.11.0+cu128 --index-url https://download.pytorch.org/whl/cu128
+torch==2.11.0+cu128
+torchaudio==2.11.0+cu128
+numpy==2.4.6
+scipy==1.17.1
+scikit-learn==1.9.1
+pandas==3.0.6
+soundfile==0.14.0
+pyroomacoustics==0.10.1
+PyYAML==6.0.3
+tqdm==4.70.1
+huggingface_hub==1.33.0
+safetensors==0.8.0
+# ffmpeg (chương trình ngoài, chỉ cần cho stages/s5_aug_assets.py + stages/s6_simedge.py khi train lại)

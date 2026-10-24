@@ -1,0 +1,12 @@
+{
+ "model": "redimnet_M_multi",
+ "params": 4811745,
+ "selected": "ema",
+ "code_hash": "68cca0a9cd36",
+ "sha1": {
+  "model_last.pt": "890532e717b07011b7baff7841ccbda2ae81071f",
+  "model_ema.pt": "f001e8e5893d65390380828280c02f1778acce89",
+  "model_final.pt": "f001e8e5893d65390380828280c02f1778acce89"
+ },
+ "train_minutes": 81.6
+}

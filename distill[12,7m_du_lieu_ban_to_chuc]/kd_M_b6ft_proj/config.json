@@ -1,0 +1,41 @@
+{
+ "model": "redimnet_M_multi",
+ "init": null,
+ "desc": "AAM + KD through a learned linear projection (training only) to the fine-tuned B6 teacher",
+ "epochs": 2,
+ "crop": 3.0,
+ "bs": 16,
+ "accum": 2,
+ "workers": 6,
+ "utt_cap": null,
+ "lr_backbone": 0.0001,
+ "lr_head": 0.001,
+ "wd": 0.0001,
+ "warmup": 500,
+ "min_lr_ratio": 0.05,
+ "freeze_steps": 0,
+ "margin": 0.2,
+ "scale": 32.0,
+ "margin_ramp_epochs": 0.5,
+ "aug": "mid",
+ "speed_perturb": false,
+ "ema": 0.999,
+ "kd": [
+  {
+   "name": "b6ft",
+   "path": "D:\\project_vlsp\\cache/teachers/b6_ft.npz",
+   "mode": "proj",
+   "weight": 2.0
+  }
+ ],
+ "l2sp": 0.0,
+ "head_init": "centroid",
+ "hard_batch": null,
+ "seed": 0,
+ "mem_frac": 0.85,
+ "amp": true,
+ "smoke": false,
+ "final_eval": true,
+ "eval_devB": false,
+ "code_hash": "68cca0a9cd36"
+}

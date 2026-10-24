@@ -1,0 +1,10 @@
+{
+ "two_epoch_runs": [
+  3.732,
+  3.747
+ ],
+ "two_epoch_mean": 3.74,
+ "four_epoch": 3.642,
+ "margin": 0.02,
+ "epochs": 4
+}

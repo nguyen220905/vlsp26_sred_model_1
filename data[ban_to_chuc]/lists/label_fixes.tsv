@@ -1,0 +1,165 @@
+kind	item	reason
+keep_in_train	id00122	multi-ID identity group
+keep_in_train	id00157	multi-ID identity group
+keep_in_train	id00208	multi-ID identity group
+keep_in_train	id00232	multi-ID identity group
+keep_in_train	id00256	multi-ID identity group
+keep_in_train	id00260	multi-ID identity group
+keep_in_train	id00352	multi-ID identity group
+keep_in_train	id00429	multi-ID identity group
+keep_in_train	id00445	multi-ID identity group
+keep_in_train	id00543	multi-ID identity group
+keep_in_train	id00654	multi-ID identity group
+keep_in_train	id00703	multi-ID identity group
+keep_in_train	id00740	multi-ID identity group
+keep_in_train	id00769	multi-ID identity group
+keep_in_train	id00930	multi-ID identity group
+keep_in_train	id00962	multi-ID identity group
+keep_in_train	id00994	multi-ID identity group
+keep_in_train	id00997	multi-ID identity group
+keep_in_train	id01083	multi-ID identity group
+keep_in_train	id01088	multi-ID identity group
+keep_in_train	id01126	multi-ID identity group
+keep_in_train	id01165	multi-ID identity group
+keep_in_train	id01180	multi-ID identity group
+keep_in_train	id01181	multi-ID identity group
+keep_in_train	id01187	multi-ID identity group
+keep_in_train	id01228	multi-ID identity group
+keep_in_train	id01425	multi-ID identity group
+keep_in_train	id01444	multi-ID identity group
+keep_in_train	id01456	multi-ID identity group
+keep_in_train	id01499	multi-ID identity group
+keep_in_train	id01520	multi-ID identity group
+keep_in_train	id01573	multi-ID identity group
+keep_in_train	id01574	multi-ID identity group
+keep_in_train	id01686	multi-ID identity group
+keep_in_train	id01687	multi-ID identity group
+keep_in_train	id01752	multi-ID identity group
+keep_in_train	id01753	multi-ID identity group
+keep_in_train	id01826	multi-ID identity group
+keep_in_train	id01830	multi-ID identity group
+keep_in_train	id01833	multi-ID identity group
+keep_in_train	id01993	multi-ID identity group
+keep_in_train	id02146	multi-ID identity group
+keep_in_train	id02185	multi-ID identity group
+keep_in_train	id02317	multi-ID identity group
+keep_in_train	id02397	multi-ID identity group
+keep_in_train	id02453	multi-ID identity group
+keep_in_train	id02486	multi-ID identity group
+keep_in_train	id02665	multi-ID identity group
+keep_in_train	id02692	multi-ID identity group
+keep_in_train	id02732	multi-ID identity group
+keep_in_train	id02773	multi-ID identity group
+keep_in_train	id02866	multi-ID identity group
+keep_in_train	id02875	multi-ID identity group
+keep_in_train	id02966	multi-ID identity group
+keep_in_train	id03083	multi-ID identity group
+keep_in_train	id03114	multi-ID identity group
+keep_in_train	id03118	multi-ID identity group
+keep_in_train	id03180	multi-ID identity group
+keep_in_train	id03198	multi-ID identity group
+keep_in_train	id03210	multi-ID identity group
+keep_in_train	id03315	multi-ID identity group
+keep_in_train	id03334	multi-ID identity group
+keep_in_train	id03352	multi-ID identity group
+keep_in_train	id03395	multi-ID identity group
+keep_in_train	id03466	multi-ID identity group
+keep_in_train	id03523	multi-ID identity group
+keep_in_train	id03552	multi-ID identity group
+keep_in_train	id03635	multi-ID identity group
+keep_in_train	id03637	multi-ID identity group
+keep_in_train	id03657	multi-ID identity group
+keep_in_train	id03792	multi-ID identity group
+keep_in_train	id03794	multi-ID identity group
+keep_in_train	id03935	multi-ID identity group
+keep_in_train	id04052	multi-ID identity group
+keep_in_train	id04196	multi-ID identity group
+keep_in_train	id04197	multi-ID identity group
+keep_in_train	id04313	multi-ID identity group
+keep_in_train	id04571	multi-ID identity group
+exclude_from_dev_trials	id01500/0136.wav	closer to id03432 (margin 0.215)
+exclude_from_dev_trials	id01500/0173.wav	closer to id03432 (margin 0.356)
+exclude_from_dev_trials	id01500/0171.wav	closer to id03432 (margin 0.248)
+exclude_from_dev_trials	id02642/0009.wav	closer to id02967 (margin 0.259)
+exclude_from_dev_trials	id02642/0015.wav	closer to id01302 (margin 0.248)
+exclude_from_dev_trials	id02642/0010.wav	closer to id02728 (margin 0.106)
+exclude_from_dev_trials	id03061/0014.wav	closer to id01444 (margin 0.103)
+exclude_from_dev_trials	id03456/0075.wav	closer to id03972 (margin 0.278)
+exclude_from_dev_trials	id03542/0002.wav	closer to id00957 (margin 0.124)
+exclude_from_dev_trials	id03542/0168.wav	closer to id03432 (margin 0.301)
+exclude_from_dev_trials	id04156/0318.wav	closer to id02869 (margin 0.323)
+exclude_from_dev_trials	id04156/0205.wav	closer to id02869 (margin 0.107)
+exclude_from_dev_trials	id00116/0003.wav	closer to id02665 (margin 0.127)
+exclude_from_dev_trials	id00165/0040.wav	closer to id00352 (margin 0.275)
+exclude_from_dev_trials	id00165/0065.wav	closer to id00352 (margin 0.254)
+exclude_from_dev_trials	id01004/0031.wav	closer to id02058 (margin 0.362)
+exclude_from_dev_trials	id01006/0052.wav	closer to id04699 (margin 0.296)
+exclude_from_dev_trials	id01006/0094.wav	closer to id03739 (margin 0.107)
+exclude_from_dev_trials	id01119/0099.wav	closer to id00482 (margin 0.260)
+exclude_from_dev_trials	id01119/0103.wav	closer to id03689 (margin 0.207)
+exclude_from_dev_trials	id01193/0007.wav	closer to id00817 (margin 0.295)
+exclude_from_dev_trials	id02319/0017.wav	closer to id00727 (margin 0.251)
+exclude_from_dev_trials	id02591/0070.wav	closer to id03114 (margin 0.151)
+exclude_from_dev_trials	id02652/0013.wav	closer to id01692 (margin 0.246)
+exclude_from_dev_trials	id03156/0008.wav	closer to id03060 (margin 0.297)
+exclude_from_dev_trials	id03156/0075.wav	closer to id03060 (margin 0.156)
+exclude_from_dev_trials	id03156/0069.wav	closer to id03060 (margin 0.374)
+exclude_from_dev_trials	id03437/0017.wav	closer to id00575 (margin 0.229)
+exclude_from_dev_trials	id03649/0002.wav	closer to id00352 (margin 0.550)
+exclude_from_dev_trials	id03778/0040.wav	closer to id03083 (margin 0.106)
+exclude_from_dev_trials	id03854/0005.wav	closer to id03774 (margin 0.119)
+exclude_from_dev_trials	id04409/0014.wav	closer to id01687 (margin 0.198)
+exclude_from_dev_trials	id04574/0004.wav	closer to id04197 (margin 0.357)
+exclude_from_dev_trials	id04693/0022.wav	closer to id01444 (margin 0.296)
+exclude_from_dev_trials	id04693/0012.wav	closer to id03935 (margin 0.101)
+exclude_from_dev_trials	id04091/0883.wav	closer to id01549 (margin 0.444)
+exclude_from_dev_trials	id04091/1466.wav	closer to id01549 (margin 0.359)
+exclude_from_dev_trials	id04091/1267.wav	closer to id01549 (margin 0.401)
+exclude_from_dev_trials	id04091/1115.wav	closer to id01549 (margin 0.431)
+exclude_from_dev_trials	id04091/1273.wav	closer to id01549 (margin 0.408)
+exclude_from_dev_trials	id04091/1268.wav	closer to id01549 (margin 0.445)
+exclude_from_dev_trials	id04091/0891.wav	closer to id01549 (margin 0.443)
+exclude_from_dev_trials	id04091/0325.wav	closer to id01549 (margin 0.460)
+exclude_from_dev_trials	id04091/1280.wav	closer to id01549 (margin 0.453)
+exclude_from_dev_trials	id04091/1455.wav	closer to id01549 (margin 0.417)
+exclude_from_dev_trials	id04091/1113.wav	closer to id01549 (margin 0.457)
+exclude_from_dev_trials	id04091/1554.wav	closer to id02869 (margin 0.439)
+exclude_from_dev_trials	id04091/1369.wav	closer to id03432 (margin 0.388)
+exclude_from_dev_trials	id04091/1438.wav	closer to id01689 (margin 0.137)
+exclude_from_dev_trials	id04091/1275.wav	closer to id01549 (margin 0.467)
+exclude_from_dev_trials	id04091/1445.wav	closer to id01549 (margin 0.412)
+exclude_from_dev_trials	id04091/0372.wav	closer to id01549 (margin 0.467)
+exclude_from_dev_trials	id04091/0882.wav	closer to id01549 (margin 0.372)
+exclude_from_dev_trials	id04091/0330.wav	closer to id01549 (margin 0.394)
+exclude_from_dev_trials	id04091/1437.wav	closer to id01549 (margin 0.455)
+exclude_from_dev_trials	id04091/1558.wav	closer to id02869 (margin 0.580)
+exclude_from_dev_trials	id04091/1259.wav	closer to id01549 (margin 0.477)
+exclude_from_dev_trials	id04091/1271.wav	closer to id01549 (margin 0.364)
+exclude_from_dev_trials	id04091/1450.wav	closer to id01549 (margin 0.337)
+exclude_from_dev_trials	id04091/1412.wav	closer to id03432 (margin 0.228)
+exclude_from_dev_trials	id04091/1423.wav	closer to id01549 (margin 0.406)
+exclude_from_dev_trials	id04091/0864.wav	closer to id01549 (margin 0.440)
+exclude_from_dev_trials	id04091/0876.wav	closer to id01549 (margin 0.415)
+exclude_from_dev_trials	id04091/1440.wav	closer to id01549 (margin 0.399)
+exclude_from_dev_trials	id04091/1462.wav	closer to id01549 (margin 0.410)
+exclude_from_dev_trials	id04091/1112.wav	closer to id01549 (margin 0.403)
+exclude_from_dev_trials	id04091/0746.wav	closer to id03432 (margin 0.418)
+exclude_from_dev_trials	id04091/0723.wav	closer to id01549 (margin 0.165)
+exclude_from_dev_trials	id04091/1434.wav	closer to id01549 (margin 0.414)
+exclude_from_dev_trials	id04091/0347.wav	closer to id01549 (margin 0.457)
+exclude_from_dev_trials	id04091/1126.wav	closer to id01549 (margin 0.474)
+exclude_from_dev_trials	id04091/0868.wav	closer to id01549 (margin 0.307)
+exclude_from_dev_trials	id04091/1555.wav	closer to id02869 (margin 0.567)
+exclude_from_dev_trials	id04091/0350.wav	closer to id01549 (margin 0.391)
+exclude_from_dev_trials	id04091/1453.wav	closer to id01549 (margin 0.390)
+exclude_from_dev_trials	id04091/1427.wav	closer to id01549 (margin 0.336)
+exclude_from_dev_trials	id04091/1261.wav	closer to id01549 (margin 0.424)
+exclude_from_dev_trials	id04091/1235.wav	closer to id01549 (margin 0.479)
+exclude_from_dev_trials	id04091/1458.wav	closer to id01549 (margin 0.426)
+exclude_from_dev_trials	id04091/1246.wav	closer to id01549 (margin 0.473)
+exclude_from_dev_trials	id04091/1463.wav	closer to id01549 (margin 0.382)
+exclude_from_dev_trials	id04091/1433.wav	closer to id01549 (margin 0.450)
+exclude_from_dev_trials	id04091/1457.wav	closer to id01549 (margin 0.382)
+exclude_from_dev_trials	id04091/0867.wav	closer to id01549 (margin 0.322)
+exclude_from_dev_trials	id04091/1468.wav	closer to id01549 (margin 0.407)
+exclude_from_dev_trials	id04091/0346.wav	closer to id01549 (margin 0.414)

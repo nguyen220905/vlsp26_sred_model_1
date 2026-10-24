@@ -1,0 +1,78 @@
+{
+ "redimnet_S_multi": {
+  "name": "redimnet_S_multi",
+  "params": 3152913,
+  "training": false,
+  "spec_aug_module": "FbankAug",
+  "emb_dim": 192,
+  "deterministic": true,
+  "batch_eq_single": 0.004992246627807617,
+  "role": "student",
+  "desc": "ReDimNet-S S-vb2+vox2+cnc-ft_mix",
+  "under_7M": true,
+  "ckpt_sha1": "3e742c151cd47de0736be1c25f618c320cfb1b3f"
+ },
+ "redimnet_M_multi": {
+  "name": "redimnet_M_multi",
+  "params": 4811745,
+  "training": false,
+  "spec_aug_module": "FbankAug",
+  "emb_dim": 192,
+  "deterministic": true,
+  "batch_eq_single": 0.005784511566162109,
+  "role": "student",
+  "desc": "ReDimNet-M M-vb2+vox2+cnc-ft_mix",
+  "under_7M": true,
+  "ckpt_sha1": "79cb491669894a2cb7e93a2001c03d56048c7db7"
+ },
+ "redimnet2_b4_vox2": {
+  "name": "redimnet2_b4_vox2",
+  "params": 6659744,
+  "training": false,
+  "spec_aug_module": "Identity",
+  "emb_dim": 192,
+  "deterministic": true,
+  "batch_eq_single": 0.0014798641204833984,
+  "role": "student",
+  "desc": "ReDimNet2-B4 b4-vox2-lm",
+  "under_7M": true,
+  "ckpt_sha1": "1c5293f6825972e4dca47723075152467a5eb975"
+ },
+ "wespeaker_r34_vox2": {
+  "name": "wespeaker_r34_vox2",
+  "params": 6634336,
+  "training": false,
+  "fbank": {
+   "num_mel_bins": 80,
+   "frame_length": 25,
+   "frame_shift": 10,
+   "dither": 0.0,
+   "energy_floor": 0.0,
+   "window_type": "hamming",
+   "sample_frequency": 16000
+  },
+  "dropped_keys": [
+   "projection.weight"
+  ],
+  "emb_dim": 256,
+  "deterministic": true,
+  "batch_eq_single": 0.00012231245636940002,
+  "role": "student",
+  "desc": "WeSpeaker ResNet34-LM VoxCeleb2",
+  "under_7M": true,
+  "ckpt_sha1": null
+ },
+ "redimnet2_b6_multi": {
+  "name": "redimnet2_b6_multi",
+  "params": 12459296,
+  "training": false,
+  "spec_aug_module": "Identity",
+  "emb_dim": 192,
+  "deterministic": true,
+  "batch_eq_single": 0.0008210241794586182,
+  "role": "teacher",
+  "desc": "ReDimNet2-B6 b6-vb2+vox2+cnc2_v0-lm (12.3M, teacher only)",
+  "under_7M": false,
+  "ckpt_sha1": "bac202c7801574d43d5047d239275114c2b09c95"
+ }
+}

@@ -17,7 +17,7 @@ training data).
 | Model A | ReDimNet-M fine-tuned with AAM-softmax (m 0.2, s 32) + projection knowledge distillation (linear 192→192 layer, training only; loss `2.0·(1 − cos)`) from a fine-tuned ReDimNet2-B6 multi teacher (official list; **training only**), all 1,900 training speakers, 3 s crops, 4 epochs, EMA 0.999 checkpoint |
 | Data | **Only the training data provided by the organisers.** Augmentation: non-speech segments of the training audio itself, simulated RIR (pyroomacoustics), codecs (ffmpeg) |
 | Scoring | **cosine** of the two L2-normalised embeddings. Every test file is embedded **alone** (batch of one, whole file, no crop/pad) → a trial's score depends on its two files only. No cohort, no score normalisation, no calibration |
-| Selection | recipe and epoch count fixed on 05/10/2026 on dev-A (`distill[...]/final/decide_epochs.py`: 4 epochs beat 2 epochs on pooled dev-A); lowest pooled dev-A EER with cosine scoring among model A and its interpolations (section 6). Public labels never used |
+| Selection | recipe and epoch count fixed on 05/10/2026 on dev-A (`distill[...]/final/decide_epochs.py`: 4 epochs beat 2 epochs on pooled dev-A; section 6). Public labels never used |
 
 | set | EER (%) | note |
 |---|---|---|
@@ -27,22 +27,33 @@ training data).
 | private test | — | scored by the organisers |
 
 ## 1. Setup
-- Python 3.11, **a CUDA GPU is required** (`common/sv.py` / `common/predict.py` use CUDA). Tested on 1× RTX 5060 Ti 16 GB,
-  Windows 10 + Git Bash; the code is plain Python and also runs on Linux.
+Tested environment: Windows 10 + Git Bash, Python 3.11.9, PyTorch 2.11.0 + CUDA 12.8, NVIDIA RTX 5060 Ti 16 GB (driver
+591.74). The code is plain Python/bash and also runs on Linux. **A CUDA GPU is required.** Inference needs < 2 GB of GPU
+memory; training uses ~10–12 GB. The repository is ~250 MB (checkpoints included, no Git LFS needed).
 ```bash
+git clone https://github.com/nguyen220905/vlsp26_sred_model_1.git
+cd vlsp26_sred_model_1
+python -m venv .venv
+source .venv/bin/activate          # Windows (Git Bash): source .venv/Scripts/activate
 pip install torch==2.11.0+cu128 torchaudio==2.11.0+cu128 --index-url https://download.pytorch.org/whl/cu128
 pip install -r requirements.txt
 ```
-- `common/config.py` uses this folder as root (or the `VLSP_ROOT` environment variable); the scripts set
-  `TORCH_HOME=./pretrained` so the two official checkpoints shipped in `pretrained/hub/checkpoints/` are used (no download).
+- Run the `.sh` scripts with bash (on Windows: Git Bash). `PY=python` selects the Python interpreter of the environment.
+- `common/config.py` uses the repository folder as root (or the `VLSP_ROOT` environment variable); the scripts set
+  `TORCH_HOME=./pretrained`, so the two official checkpoints shipped in `pretrained/hub/checkpoints/` are used and nothing
+  is downloaded. The ReDimNet / ReDimNet2 architecture code is vendored in `third_party/`.
 - Folder names contain `[ ]` and `,` (kept as they were during the experiments) — quote them in a shell.
 
 ## 2. Data (not redistributed — copy the organisers' files here)
 ```
-data[ban_to_chuc]/private_test/  private-test.txt + data/   (needed for ./run_infer.sh)
-data[ban_to_chuc]/public_test/   public-test.txt + data/    (./run_infer.sh public; run_train.sh reports public EER)
-data[ban_to_chuc]/vlsp/          train.txt + data/idXXXXX/*.wav   (training data; only for run_train.sh / dev evaluation)
+data[ban_to_chuc]/private_test/private-test.txt    trial list, one pair per line: "id07900/0010.wav id05180/0016.wav"
+data[ban_to_chuc]/private_test/data/idXXXXX/*.wav  private-test audio (paths in the list are relative to data/)
+data[ban_to_chuc]/public_test/public-test.txt      "wav1 wav2 target|nontarget"  (only for ./run_infer.sh public)
+data[ban_to_chuc]/public_test/data/...             public-test audio
+data[ban_to_chuc]/vlsp/train.txt                   "id00000<TAB>id00000/0009.wav"  (training list; only for run_train.sh)
+data[ban_to_chuc]/vlsp/data/idXXXXX/*.wav          training audio (unzipped Vi-SRED26-Train.zip)
 ```
+If the files are elsewhere, pass them explicitly: `PY=python ./run_infer.sh <trial list> <wav folder> <output name>`.
 `data[ban_to_chuc]/lists/` holds our fixed speaker split (train / dev-A / dev-B = 1702 / 99 / 99) and the dev trial lists.
 
 ## 3. Reproduce the submitted score files (no training)
@@ -50,21 +61,42 @@ data[ban_to_chuc]/vlsp/          train.txt + data/idXXXXX/*.wav   (training data
 PY=python ./run_infer.sh            # private test: ~75 min on one GPU (every file embedded alone, ~8 files/s)
 PY=python ./run_infer.sh public     # public test:  ~35 min
 ```
-Output: `outputs/private/results.txt` (`file1 file2 score`, same order as the trial list) and `results.zip`
-(AIHub format). The script prints the sha1 of `results.txt` and the sha1 of the submitted file; they must be equal:
-
+What the script does (`common/predict.py --score cos --per_file`): loads `distill[...]/final/M_proj_alldata/model_final.pt`,
+asserts that the model has fewer than 7M parameters (4,811,745), embeds every file of the trial list alone,
+writes the cosine score of each pair in the order of the trial list, checks the file and zips it.
+Output: `outputs/<name>/results.txt` (`file1 file2 score`) and `outputs/<name>/results.zip` (AIHub format). Expected end
+of the log for the private test:
+```
+OK .../outputs/private/results.txt: 278410 lines, score range [-0.286, 0.997]
+a5995ef4d4a37f9dd5df975100c6be904bbf7c93 *outputs/private/results.txt
+sha1 of the submitted results.txt:   a5995ef4d4a37f9dd5df975100c6be904bbf7c93
+```
 | file | sha1 of `results.txt` |
 |---|---|
 | private (`submitted/private_results.zip`) | a5995ef4d4a37f9dd5df975100c6be904bbf7c93 |
-| public (`submitted/public_results.zip`, best system) | 5b4e088c6c2120dcfcb1a9d725222e859fa275e1 |
+| public (`submitted/public_results.zip`, best system) | 5b4e088c6c2120dcfcb1a9d725222e859fa275e1 (EER 5.029 % is printed, the public list has labels) |
 
-Reproduction from a fresh `git clone` of this repository is being checked (result added below when done).
+**Verified 25/10/2026** from a fresh `git clone` of this repository (test data linked into `data[ban_to_chuc]/`): `./run_infer.sh` and `./run_infer.sh public` reproduce both submitted files **bit-exactly** (sha1 above) on the tested environment of section 1.
+
+**Bit-exactness depends on the hardware/software stack.** On another GPU model, driver or CUDA/cuDNN version, the last
+digits of the floating-point scores can differ, so the sha1 can differ although the system is the same. In that case
+compare the files directly:
+```bash
+python tools/compare_scores.py outputs/private/results.txt submitted/private_results.zip
+python tools/compare_scores.py outputs/public/results.txt submitted/public_results.zip "data[ban_to_chuc]/public_test/public-test.txt"
+```
+It checks that both files list the same trials in the same order and prints the maximum score difference, the Spearman
+rank correlation (expected ≈ 1.0) and, for the public test, the EER of both files (expected 5.029 %).
 
 ## 4. Retrain everything from the official checkpoints (~7.5 h on one 16 GB GPU)
 ```bash
-PY=python ./run_train.sh     # logs in logs/
+PY=python ./run_train.sh                  # everything, logs in logs/
+SKIP_TEACHER=1 PY=python ./run_train.sh   # reuse the shipped fine-tuned teacher + KD targets (~4.7 h)
 PY=python ./run_infer.sh
 ```
+The fine-tuned teacher (`distill[...]/teachers/ft_redimnet2_b6_multi/model_final.pt`) and its KD targets
+(`data[ban_to_chuc]/cache/teachers/b6_ft.npz`) are shipped, so model A can be retrained without retraining the teacher.
+
 | step | script | time |
 |---|---|---|
 | augmentation assets | `stages/s5_aug_assets.py` (noise = non-speech parts of training audio; simulated RIR; 25 % of training utterances through codecs) | ~5 min |
@@ -74,7 +106,10 @@ PY=python ./run_infer.sh
 | twin (1,702 spk) | `distill[...]/kd_M_b6ft_proj_4ep/run.py`: same recipe, 4 epochs, dev-A + public evaluation | ~2.6 h |
 | model A (submitted) | `distill[...]/final/M_proj_alldata/run.py` (`FINAL_EPOCHS=4`), all 1,900 speakers, EMA | ~2 h |
 
-GPU training is not bit-deterministic; inference from a given checkpoint is. Shipped checkpoints/targets are renamed
+Each training run writes `results.json` (dev-A EER of the twin, public EER for information) and its checkpoints in its
+own folder. GPU training is not bit-deterministic; inference from a given checkpoint is. A full retraining of model A with the same
+recipe (16/10/2026) gave public-test EER 5.033 with cosine scoring vs 5.013 for the shipped checkpoint (same
+length-batched evaluation), i.e. within the seed-to-seed noise of about 0.1. Shipped checkpoints/targets are renamed
 `*.shipped.*` (not deleted) before retraining. Model A was trained with an earlier revision of `common/train.py`
 (code hash `d36e74c71c6e` in its `manifest.json`); the shipped revision only adds options that are off by default.
 
@@ -88,21 +123,14 @@ GPU training is not bit-deterministic; inference from a given checkpoint is. Shi
 - The recipe, the epoch count and the choice of this model were made on dev-A (held-out training speakers).
 - Our earlier AIHub submissions used AS-norm + a duration-aware calibration and are **not** represented by this code.
 
-## 6. Choice of the re-submitted model (dev only)
-Model A and its interpolations towards the official pre-trained checkpoint (WiSE-FT, `θ = (1 − α)·θ_A + α·θ_pre`),
-re-scored with cosine only and ranked by twin dev-A pooled EER (%). Model A ranks first and is the only model we
-re-submitted (the interpolations had been explored for earlier submissions with public-test checks, so none of them
-was re-submitted).
-
-| candidate | dev-A pooled | dev-A hard | dev-B pooled |
-|---|---|---|---|
-| **α = 0, model A (submitted)** | **3.811** | 6.633 | **2.642** |
-| α = 0.05 | 3.863 | 6.600 | 2.647 |
-| α = 0.1 / 0.15 / 0.2 | 3.900 / 3.926 / 4.011 | 6.433 / 6.467 / 6.467 | 2.647 / 2.663 / 2.674 |
-| α = 0.25 / 0.3 / 0.5 | 4.053 / 4.142 / 4.642 | 6.433 / 6.467 / 6.767 | 2.711 / 2.800 / 3.179 |
-
-The dev numbers of model A's twin are in `distill[...]/kd_M_b6ft_proj_4ep/eval_ema/results*.json` (field
-`devA_pooled.cos`); the 2-epoch runs used for the epoch decision are in `kd_M_b6ft_proj/` and `kd_M_b6ft_proj_seed1/`.
+## 6. Model selection (dev only)
+The recipe (projection KD from the fine-tuned B6 teacher) and the number of epochs were chosen on pooled dev-A of the
+1,702-speaker twins, before any test result was used: `distill[...]/final/decide_epochs.py` picks 4 epochs if the
+4-epoch twin beats the mean of the two 2-epoch seeds by more than the seed spread (0.02); the decision and its inputs are
+in `distill[...]/final/M_proj_alldata/epoch_decision.json` (2-epoch seeds 3.732 / 3.747, 4-epoch 3.642 with the AS-norm
+scoring used for development at that time). With the cosine scoring of the submission, the twin of A reaches 3.811
+(dev-A pooled) and 2.642 (dev-B pooled): `distill[...]/kd_M_b6ft_proj_4ep/eval_ema/results*.json`, field
+`devA_pooled.cos` / `devB_pooled.cos`.
 
 ## 7. Checksums (sha1)
 | file | sha1 |
@@ -126,4 +154,6 @@ distill[12,7m_du_lieu_ban_to_chuc]/
   kd_M_b6ft_proj_4ep/              1,702-speaker twin of A (dev evaluation)
   final/M_proj_alldata/            submitted model A (1,900 speakers, 4 epochs); final/decide_epochs.py = epoch choice on dev-A
 submitted/                      the exact score files sent to the organisers (private and public test)
+tools/compare_scores.py         compare a reproduced score file with the submitted one (when the sha1 differs)
+outputs/                        created by run_infer.sh (not in git)
 ```

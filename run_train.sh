@@ -1,6 +1,7 @@
 #!/bin/bash
-# Retrain the submitted model (= model A) from the official pre-trained checkpoints + the organisers' training data (~10 h on one
-# 16 GB GPU). Shipped checkpoints / targets are renamed *.shipped.* before being retrained (never deleted).
+# Retrain the submitted model (= model A) from the official pre-trained checkpoints + the organisers' training data (~7.5 h on
+# one 16 GB GPU; SKIP_TEACHER=1 reuses the shipped fine-tuned teacher and its KD targets: ~4.5 h).
+# Shipped checkpoints / targets are renamed *.shipped.* before being retrained (never deleted).
 # Needs: data[ban_to_chuc]/vlsp/{train.txt,data/}; data[ban_to_chuc]/public_test/{public-test.txt,data/} (each run only
 # REPORTS public EER at the end; public labels are never used for any choice); ffmpeg in PATH.
 set -e
@@ -20,12 +21,16 @@ step "s5 augmentation assets (training audio only + simulated RIR (pyroomacousti
 step "s6 simulated-edge dev trials (dev-A / dev-B evaluation only)"
 "$PY" -u stages/s6_simedge.py > logs/s6_simedge.log 2>&1
 
-step "teacher: fine-tune ReDimNet2-B6 multi on the 1702 training speakers (2 ep) - training only"
-keep "$D/teachers/ft_redimnet2_b6_multi/model_final.pt"
-(cd "$D/teachers/ft_redimnet2_b6_multi" && "$PY" -u run.py > console.log 2>&1)
-step "KD targets: clean full-utterance teacher embeddings of every training utterance"
-keep "data[ban_to_chuc]/cache/teachers/b6_ft.npz"
-"$PY" -u "$D/make_targets.py" b6_ft redimnet2_b6_multi distill/teachers/ft_redimnet2_b6_multi/model_final.pt > logs/targets_b6_ft.log 2>&1
+if [ "${SKIP_TEACHER:-0}" = 1 ]; then
+  step "SKIP_TEACHER=1: using the shipped fine-tuned teacher and KD targets (data[ban_to_chuc]/cache/teachers/b6_ft.npz)"
+else
+  step "teacher: fine-tune ReDimNet2-B6 multi on the 1702 training speakers (2 ep) - training only"
+  keep "$D/teachers/ft_redimnet2_b6_multi/model_final.pt"
+  (cd "$D/teachers/ft_redimnet2_b6_multi" && "$PY" -u run.py > console.log 2>&1)
+  step "KD targets: clean full-utterance teacher embeddings of every training utterance"
+  keep "data[ban_to_chuc]/cache/teachers/b6_ft.npz"
+  "$PY" -u "$D/make_targets.py" b6_ft redimnet2_b6_multi distill/teachers/ft_redimnet2_b6_multi/model_final.pt > logs/targets_b6_ft.log 2>&1
+fi
 
 step "twin (1702 speakers, dev-A/dev-B held out): ReDimNet-M + projection KD, 4 ep -> dev-A results"
 keep "$D/kd_M_b6ft_proj_4ep/model_final.pt"; keep "$D/kd_M_b6ft_proj_4ep/model_ema.pt"

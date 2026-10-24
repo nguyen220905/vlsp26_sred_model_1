@@ -5,6 +5,8 @@ public-test system) under the organisers' supplementary rules of 23/10/2026 (no 
 normalisation, no public-test labels for model optimisation, hyper-parameters chosen on a development split of the
 training data).
 
+**Submitted checkpoint:** [`distill[12,7m_du_lieu_ban_to_chuc]/final/M_proj_alldata/model_final.pt`](distill%5B12%2C7m_du_lieu_ban_to_chuc%5D/final/M_proj_alldata/model_final.pt) (18.9 MB, sha1 `1e1633838d3299dbe8282d9c1b49b9552c50e4dd`) — used by `./run_infer.sh`. Submitted score files: `submitted/private_results.zip`, `submitted/public_results.zip`.
+
 > **Tóm tắt (VI):** một model ReDimNet-M 4,811,745 tham số (model A): fine-tune AAM + projection KD từ teacher
 > ReDimNet2-B6 (teacher chỉ dùng lúc train), toàn bộ 1,900 speaker BTC, 4 epoch, trọng số EMA. Điểm = cosine của
 > 2 embedding, mỗi file được trích riêng (batch 1) — không chuẩn hoá điểm, không dùng file test khác, không dùng nhãn
